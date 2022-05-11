@@ -1,0 +1,250 @@
+/*
+    Variables
+*/
+/*
+    Import google font Overpass
+*/
+@import url("https://fonts.googleapis.com/css2?family=Kumbh+Sans&display=swap");
+/*
+  Use a more-intuitive box-sizing model.
+*/
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+/*
+  Remove default margin
+*/
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/*
+  Allow percentage-based heights in the application
+*/
+html,
+body {
+  height: 100%;
+}
+
+/*
+  6. Improve media defaults
+*/
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+/*
+  Remove built-in form typography styles
+*/
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-family: 'Kumbh sans', sans-serif;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#af67e9), to(#6565e7));
+  background-image: linear-gradient(top, #af67e9 0%, #6565e7 100%);
+  font-size: 12px;
+  padding: 0px 1rem;
+}
+
+main {
+  width: 100%;
+}
+
+@-webkit-keyframes float {
+  0% {
+    -webkit-transform: translateY(0px);
+            transform: translateY(0px);
+  }
+  50% {
+    -webkit-transform: translateY(-20px);
+            transform: translateY(-20px);
+  }
+  100% {
+    -webkit-transform: translateY(0px);
+            transform: translateY(0px);
+  }
+}
+
+@keyframes float {
+  0% {
+    -webkit-transform: translateY(0px);
+            transform: translateY(0px);
+  }
+  50% {
+    -webkit-transform: translateY(-20px);
+            transform: translateY(-20px);
+  }
+  100% {
+    -webkit-transform: translateY(0px);
+            transform: translateY(0px);
+  }
+}
+
+.illustration-mobile {
+  margin: 0px auto;
+  position: relative;
+  max-width: 240px;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+}
+
+@media (min-width: 900px) {
+  .illustration-mobile {
+    display: none;
+  }
+}
+
+.illustration-mobile::before {
+  position: absolute;
+  content: url("/images/illustration-woman-online-mobile.svg");
+  margin: 0px auto;
+  width: 100%;
+  top: -110px;
+  -webkit-animation: float 6s ease-in-out infinite;
+          animation: float 6s ease-in-out infinite;
+}
+
+.illustration-mobile::after {
+  position: absolute;
+  content: url("/images/bg-pattern-mobile.svg");
+}
+
+@media (min-width: 900px) {
+  .illustration-desktop {
+    position: relative;
+    content: url("/images/illustration-woman-online-desktop.svg");
+    left: -150px;
+    -webkit-clip-path: inset(0px 0px 0px 70px);
+            clip-path: inset(0px 0px 0px 70px);
+  }
+}
+
+@media (min-width: 900px) {
+  .illustration-desktop::before {
+    display: block;
+    position: absolute;
+    content: url("/images/bg-pattern-desktop.svg");
+  }
+}
+
+.faq-card {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: white;
+  padding: 135px 1.5rem 1.5rem;
+  margin: 0px auto;
+  max-width: 1000px;
+  border-radius: 1.5rem;
+}
+
+@media (min-width: 900px) {
+  .faq-card {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    padding: 3rem 5rem;
+  }
+}
+
+.title {
+  margin-bottom: 2rem;
+}
+
+.faq-row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+input[type='checkbox'] {
+  display: none;
+}
+
+.toggle-label {
+  width: 100%;
+  color: #1d1e35;
+}
+
+.toggle-label::after {
+  content: url("/images/icon-arrow-down.svg");
+  float: right;
+  -webkit-transition: -webkit-transform 0.2s ease-out;
+  transition: -webkit-transform 0.2s ease-out;
+  transition: transform 0.2s ease-out;
+  transition: transform 0.2s ease-out, -webkit-transform 0.2s ease-out;
+}
+
+.toggle-label:hover {
+  color: #f47c57;
+}
+
+.toggle:checked + .toggle-label::after {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+
+.toggle:checked + .toggle-label {
+  font-weight: 700;
+}
+
+.divider {
+  width: 100%;
+  border-top: 1px solid #e7e7e9;
+  margin-bottom: 1rem;
+}
+
+.collapsible-content {
+  max-height: 0px;
+  overflow: hidden;
+  -webkit-transition: max-height 0.25s ease-in-out;
+  transition: max-height 0.25s ease-in-out;
+  margin-bottom: 1rem;
+}
+
+.collapsible-content .content-inner {
+  margin-top: 1rem;
+}
+
+.toggle:checked ~ .collapsible-content {
+  max-height: 100vh;
+}
+/*# sourceMappingURL=styles.css.map */
